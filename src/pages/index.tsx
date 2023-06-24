@@ -2,8 +2,8 @@ import type {NextPage} from "next";
 
 const Home:NextPage=()=>{
   return (
-    <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen ">
-      <div  className="bg-white sm:bg-red-400 md:bg-teal-400 p-10 lg:bg-yellow-500 rounded-2xl shadow-xl ">
+    <div className="bg-slate-400  py-20 px-10 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen ">
+      <div  className="bg-white sm:bg-red-400 md:bg-teal-400 p-10  rounded-2xl shadow-xl ">
         <span className="font-semibold text-3xl ">Select Item</span>
           <ul>
           {[1,2,3,4].map((index)=>(
@@ -91,7 +91,7 @@ const Home:NextPage=()=>{
           </div>
         </div>
       </div>
-      <form className="flex flex-col space-y-2 bg-blue-500 p-5 focus-within:bg-blue-800">
+      <form className="xl:col-span-3 flex flex-col space-y-2 bg-blue-500 p-5 focus-within:bg-blue-800">
         <input type="text" required placeholder="Username" className="peer required:border-2 border-yellow-500" />
         <span className="hidden peer-invalid:block peer-invalid:text-red-500">Not Invalid</span>
         <input type="password" required placeholder="Password" className="peer"/>
