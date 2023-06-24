@@ -33,7 +33,7 @@ const Home:NextPage=()=>{
           Check Out
         </button>
       </div>
-      <div className="bg-white overflow-hidden rounded-3xl shadow-xl">
+      <div className="bg-white overflow-hidden rounded-3xl shadow-xl group">
         <div className="bg-blue-500 p-6 pb-14">
           <span className="text-white text-2xl">Profile</span>
         </div>
@@ -43,7 +43,7 @@ const Home:NextPage=()=>{
               <span className="text-sm text-gray-500">Orders</span>
               <span className="font-medium">340</span>
             </div>
-            <div className="h-24 w-24 bg-red-400 rounded-full" />
+            <div className="h-24 w-24 bg-red-400 rounded-full group-hover:bg-blue-300 transition-colors" />
             <div className="flex flex-col items-center">
               <span className="text-sm text-gray-500">Spent</span>
               <span className="font-medium">$1500</span>
@@ -91,7 +91,15 @@ const Home:NextPage=()=>{
           </div>
         </div>
       </div>
-      </div>
+      <form className="flex flex-col space-y-2 bg-blue-500 p-5 focus-within:bg-blue-800">
+        <input type="text" required placeholder="Username" className="peer required:border-2 border-yellow-500" />
+        <span className="hidden peer-invalid:block peer-invalid:text-red-500">Not Invalid</span>
+        <input type="password" required placeholder="Password" className="peer"/>
+        <span className="hidden peer-invalid:block peer-invalid:text-amber-500">Nice username</span>
+        <input type="submit" required placeholder="Submit" className="bg-white peer"/>
+        <span className="hidden peer-invalid:block peer-invalid:text-purple-500">Welcome</span>
+      </form>
+    </div>
   )
 }
 
