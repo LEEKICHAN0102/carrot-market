@@ -3,7 +3,7 @@ import type {NextPage} from "next";
 const Home:NextPage=()=>{
   return (
     <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen ">
-      <div  className="bg-white p-10 rounded-2xl shadow-xl ">
+      <div  className="bg-white sm:bg-red-400 md:bg-teal-400 p-10 lg:bg-yellow-500 rounded-2xl shadow-xl ">
         <span className="font-semibold text-3xl ">Select Item</span>
           <ul>
           {[1,2,3,4].map((index)=>(
