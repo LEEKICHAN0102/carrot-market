@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import Layout from "../components/layout";
 
 const Home: NextPage = () => {
   return (
     <Layout title="홈" hasTabBar>
+      <Link href="/items/:id">
       <div className="flex flex-col space-y-5 ">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <div
@@ -76,6 +78,7 @@ const Home: NextPage = () => {
             </svg>
           </button>
       </div>
+      </Link>
       </Layout>
     );
   };
