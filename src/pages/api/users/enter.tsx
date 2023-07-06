@@ -1,6 +1,9 @@
+import twilio from "twilio";
 import { NextApiRequest, NextApiResponse } from "next";
 import client from "@/libs/server/client";
 import withHandler,{ResponseType} from "@/libs/server/withHandler";
+
+const twilioClient=twilio(process.env.TWILIO_SID,process.env.TWILIO_TOKEN);
 
 async function handler(req: NextApiRequest,res: NextApiResponse<ResponseType>) {
   const {phone,email}=req.body;
@@ -23,52 +26,17 @@ async function handler(req: NextApiRequest,res: NextApiResponse<ResponseType>) {
       },
     },
   });
-  console.log(token);
-//   if(email){
-//     user=await client.user.findUnique({
-//       where:{
-//         email,
-
-//       }
-//     });
-//   if(user){
-//     console.log("Found it")
-//   }
-//   if(!user){
-//     console.log("Did Not Find User Will Create For You Anonymous User");
-//     user=await client.user.create({
-//       data:{
-//         name:"Anonymous",
-//         email,
-//       }
-//     })
-//   }
-//   console.log(user);
-// }
-//   if(phone){
-//     user=await client.user.findUnique({
-//       where:{
-//         phone: +phone,
-
-//       }
-//     });
-//   if(user){
-//     console.log("Found it")
-//   }
-//   if(!user){
-//     console.log("Did Not Find User Will Create For You Anonymous User");
-//     user=await client.user.create({
-//       data:{
-//         name:"Anonymous",
-//         phone: +phone,
-//       }
-//     })
-//   }
-//   console.log(user);
-//   }
-return res.json({
-  ok: true,
-});
+  if(phone){
+    const message=await twilioClient.messages.create({
+      messagingServiceSid:process.env.TWILIO_MESSAGE,
+      to:process.env.MY_PHONE!,
+      body:`로그인 TOKEN 발급 : ${payload}`
+    });
+    console.log(message);
+  }
+  return res.json({
+    ok: true,
+  });
 }
 
 export default withHandler("POST",handler);

@@ -29,6 +29,5 @@ model Token {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId Int
-
   @@index([userId])
 }
